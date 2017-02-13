@@ -1,0 +1,18 @@
+application: %application_id%
+version: 1
+runtime: go
+api_version: go1
+
+env_variables:
+  CHANNEL_SECRET: %channel_secret%
+  CHANNEL_TOKEN: %channel_token%
+
+handlers:
+- url: /task.*
+  script: _go_app
+  login: admin
+  secure: always
+- url: /.*
+  script: _go_app
+  secure: always
+
